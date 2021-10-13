@@ -1,40 +1,40 @@
 <template>
   <form @submit.prevent="addTechno">
-      <label for="techno"></label>
-      <br>
-      <input class="inputAdd" type="text" name="techno" v-model="techTolearn" required>
-      <br>
-      <button class="buttonAdd" type="submit">Ajouter</button>
+    <label for="techno"></label>
+    <br />
+    <input
+      class="inputAdd"
+      type="text"
+      name="techno"
+      v-model="techTolearn"
+      required
+    />
+    <br />
+    <button class="buttonAdd" type="submit">Ajouter</button>
   </form>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 export default {
-    setup(props, ctx){
-        let techTolearn = ref("");
+  setup(props, ctx) {
+    let techTolearn = ref("");
 
-        const addTechno = function(){
-            console.log("form | addTechno | techTolearn.value", techTolearn.value);
-            ctx.emit("add", techTolearn.value)
-            techTolearn.value = "";
-            
-        }
+    const addTechno = function() {
+      console.log("form | addTechno | techTolearn.value", techTolearn.value);
+      ctx.emit("add", techTolearn.value);
+      techTolearn.value = "";
+    };
 
-        return{
-            techTolearn,
-            addTechno,
-        }
-    }
-
-}
+    return {
+      techTolearn,
+      addTechno,
+    };
+  },
+};
 </script>
 
-<style scoped > 
-form{
-  
-}
-
+<style scoped>
 /* input ajouter */
 .inputAdd {
   padding: 5px;
@@ -46,9 +46,9 @@ form{
   border-style: groove;
   border-radius: 6px;
   box-shadow: 0px 0px 12px rgba(66, 66, 66, 0.75);
-  text-shadow: 4px 3px 4px rgba(218,24,90,0.6);
+  text-shadow: 4px 3px 4px rgba(218, 24, 90, 0.6);
   text-transform: uppercase;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .inputAdd:focus {
   outline: none;
@@ -74,5 +74,4 @@ form{
   background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
   background-color: #0061a7;
 }
-
 </style>

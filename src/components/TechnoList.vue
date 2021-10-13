@@ -1,15 +1,14 @@
 <template>
-
   {{ technos.length }} Achat{{ technos.length > 1 ? "s" : "" }}
 
   <h3>&#8216;ma liste de course&#8217;</h3>
 
   <ul>
-
     <li v-for="tech in technos" :key="tech.id">
-
       <button class="buttonModif" @click="editTechno(tech)">Modifier</button>
-      <button class="buttonSuppr" @click="deleteTechno(tech)">Supprimer</button>
+      <button class="buttonSuppr" @click="deleteTechno(tech)">
+        Supprimer
+      </button>
       <div class="resultList">
         <span v-if="technoToEdit !== null && technoToEdit.id === tech.id">
           <input
@@ -41,13 +40,13 @@ export default {
   },
   setup(props, { emit }) {
     let technoToEdit = ref(null);
-    let deleteTechno = function (tech) {
+    let deleteTechno = function(tech) {
       emit("delete-techno", tech);
     };
-    let editTechno = function (tech) {
+    let editTechno = function(tech) {
       technoToEdit.value = tech;
     };
-    let save = function () {
+    let save = function() {
       emit("edit-techno", technoToEdit.value);
       technoToEdit.value = null;
     };
@@ -61,19 +60,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h3 {
-
   text-transform: uppercase;
   color: #aade7c;
 }
-ul{
-  
-  width: 50%;
-  padding-top: 20px;
- 
+ul {
+  display: grid;
+  grid-auto-columns: 1fr;
 }
-
 
 span {
   position: relative;
@@ -85,13 +80,12 @@ span {
   color: yellow;
   width: 300px;
 }
-ul li{
+ul li {
   display: flex;
+  justify-content: center;
   width: 80%;
-  margin-left: 10%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   list-style: none;
- 
 }
 button {
   margin: 5px;
@@ -195,23 +189,23 @@ div .resultList {
 input {
   margin-bottom: 2px;
 }
-@media screen and (max-width:620px){
-  span{
+@media screen and (max-width: 620px) {
+  span {
     width: 150px;
     font-size: 12px;
     text-align: center;
     margin: auto;
   }
-  .buttonModif, .buttonSuppr{
+  .buttonModif,
+  .buttonSuppr {
     width: 100px;
     font-size: 12px;
     text-align: left;
     margin-left: auto;
     padding: 10px;
   }
-  .buttonSave{
+  .buttonSave {
     font-size: 12px;
-    
   }
 }
 </style>
