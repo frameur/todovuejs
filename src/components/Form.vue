@@ -1,12 +1,12 @@
 <template>
-  <form @submit.prevent="addTechno">
-    <label for="techno"></label>
+  <form @submit.prevent="addTodo">
+    <label for="todo"></label>
     <br />
     <input
       class="inputAdd"
       type="text"
-      name="techno"
-      v-model="techTolearn"
+      name="todo"
+      v-model="todTobuy"
       required
     />
     <br />
@@ -18,17 +18,17 @@
 import { ref } from "vue";
 export default {
   setup(props, ctx) {
-    let techTolearn = ref("");
+    let todTobuy = ref("");
 
-    const addTechno = function() {
-      console.log("form | addTechno | techTolearn.value", techTolearn.value);
-      ctx.emit("add", techTolearn.value);
-      techTolearn.value = "";
+    const addTodo = function() {
+      console.log("form | addTodo | todTobuy.value", todTobuy.value);
+      ctx.emit("add", todTobuy.value);
+      todTobuy.value = "";
     };
 
     return {
-      techTolearn,
-      addTechno,
+      todTobuy,
+      addTodo,
     };
   },
 };

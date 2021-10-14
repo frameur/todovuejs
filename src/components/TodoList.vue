@@ -1,27 +1,27 @@
 <template>
-  {{ technos.length }} Achat{{ technos.length > 1 ? "s" : "" }}
+  {{ todos.length }} Achat{{ todos.length > 1 ? "s" : "" }}
 
   <h3>&#8216;ma liste de course&#8217;</h3>
 
   <ul>
-    <li v-for="tech in technos" :key="tech.id">
-      <button class="buttonModif" @click="editTechno(tech)">Modifier</button>
-      <button class="buttonSuppr" @click="deleteTechno(tech)">
+    <li v-for="tod in todos" :key="tod.id">
+      <button class="buttonModif" @click="editTodo(tod)">Modifier</button>
+      <button class="buttonSuppr" @click="deleteTodo(tod)">
         Supprimer
       </button>
       <div class="resultList">
-        <span v-if="technoToEdit !== null && technoToEdit.id === tech.id">
+        <span v-if="todoToEdit !== null && todoToEdit.id === tod.id">
           <input
             class="inputSave"
             type="text"
-            v-model="technoToEdit.techno"
+            v-model="todoToEdit.todo"
             @keypress.enter="save"
           />
 
           <button class="buttonSave" @click="save">&#9996;</button>
         </span>
         <span v-else>
-          {{ tech.techno }}
+          {{ tod.todo }}
         </span>
       </div>
     </li>
@@ -31,30 +31,30 @@
 <script>
 import { ref } from "vue";
 export default {
-  emits: ["delete-techno", "edit-techno"],
+  emits: ["delete-todo", "edit-todo"],
   props: {
-    technos: {
+    todos: {
       type: Array,
       required: true,
     },
   },
   setup(props, { emit }) {
-    let technoToEdit = ref(null);
-    let deleteTechno = function(tech) {
-      emit("delete-techno", tech);
+    let todoToEdit = ref(null);
+    let deleteTodo = function(tod) {
+      emit("delete-todo", tod);
     };
-    let editTechno = function(tech) {
-      technoToEdit.value = tech;
+    let editTodo = function(tod) {
+      todoToEdit.value = tod;
     };
     let save = function() {
-      emit("edit-techno", technoToEdit.value);
-      technoToEdit.value = null;
+      emit("edit-todo", todoToEdit.value);
+      todoToEdit.value = null;
     };
     return {
-      deleteTechno,
-      editTechno,
+      deleteTodo,
+      editTodo,
       save,
-      technoToEdit,
+      todoToEdit,
     };
   },
 };

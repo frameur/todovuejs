@@ -1,59 +1,54 @@
 <template>
-  <h1>&#8216;todo list&#8217;</h1>
-  <Form @add="saveTechno" />
+  <h1>&#8216;market list&#8217;</h1>
+  <Form @add="saveTodo" />
 
-  <TechnoList :technos="technos" @delete-techno="deleteTechno" @edit-techno="editTechno" />
+  <TodoList :todos="todos" @delete-todo="deleteTodo" @edit-todo="editTodo" />
 </template>
 
 <script>
-
 import Form from "@/components/Form";
-import TechnoList from "@/components/TechnoList"
-import { ref } from 'vue';
+import TodoList from "@/components/TodoList";
+import { ref } from "vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Form,
-    TechnoList
-    
+    TodoList,
   },
-  setup(){
-    let technos = ref([]);
-    const saveTechno = function(data) {
-      console.log("App | saveTechno() | data", data);
-      technos.value = [...technos.value, {techno: data, id: Date.now() }];
-       console.log("App | saveTechno() | technos.value", technos.value);
+  setup() {
+    let todos = ref([]);
+    const saveTodo = function(data) {
+      console.log("App | saveTodo() | data", data);
+      todos.value = [...todos.value, { todo: data, id: Date.now() }];
+      console.log("App | saveTodo() | todos.value", todos.value);
     };
 
-    const editTechno = function(tech){
-      technos.value = technos.value.map(t => t.id !== tech.id ? t : tech);
-    }
-    const deleteTechno = function (tech){
-      console.log("App | deleteTechno() | tech", tech);
-      technos.value = technos.value.filter(t => t.id !== tech.id )
-    }
-    return{
-      saveTechno,
-      deleteTechno,
-      technos,
-      editTechno,
-    }
-  }
-}
+    const editTodo = function(tod) {
+      todos.value = todos.value.map((t) => (t.id !== tod.id ? t : tod));
+    };
+    const deleteTodo = function(tod) {
+      console.log("App | deleteTodo() | tod", tod);
+      todos.value = todos.value.filter((t) => t.id !== tod.id);
+    };
+    return {
+      saveTodo,
+      deleteTodo,
+      todos,
+      editTodo,
+    };
+  },
+};
 </script>
 
 <style>
-body{
+body {
   background: black;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  
-
 }
 
-h1{
-  
+h1 {
   text-transform: uppercase;
   text-shadow: 4px 4px 2px rgba(251, 247, 247, 0.6);
 }
@@ -65,5 +60,4 @@ h1{
   color: #e1e5e9;
   margin-top: 60px;
 }
-
 </style>
