@@ -42,7 +42,7 @@ export default {
 
 <style>
 body {
-  background: black;
+  background: url(./assets/listcourse.jpg) top/cover;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -50,7 +50,7 @@ body {
 
 h1 {
   text-transform: uppercase;
-  text-shadow: 4px 4px 2px rgba(251, 247, 247, 0.6);
+  text-shadow: 4px 4px 2px rgba(41, 38, 38, 0.6);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
