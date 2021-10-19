@@ -88,7 +88,7 @@ ul li {
   list-style: none;
 }
 button {
-  margin: 5px;
+  margin: 3px;
 }
 div .resultList {
   display: flex;
@@ -151,9 +151,9 @@ div .resultList {
   border: 1px solid #337bc4;
   display: inline-block;
   cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 15px;
+  color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.1em;
   font-weight: bold;
   padding: 15px 44px;
   text-decoration: none;
@@ -175,7 +175,7 @@ div .resultList {
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
-  font-size: 15px;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 15px 44px;
   text-decoration: none;

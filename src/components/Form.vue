@@ -67,6 +67,7 @@ export default {
   font-family: Arial;
   font-size: 13px;
   padding: 6px 24px;
+  margin: 5px 0 5px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #154682;
 }
