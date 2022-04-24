@@ -42,7 +42,8 @@ export default {
 
 <style>
 body {
-  background: url(./assets/listcourse.jpg) top/cover;
+  background: url(./assets/listcourse.jpg) center/cover;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
